@@ -12,9 +12,9 @@ contract SuperHeros is ERC721 {
 
     mapping(uint256 => string) private _tokenURIs;
 
-    constructor(string memory _name, string memory _symbol) {
-        name = _name;
-        symbol = _symbol;
+    constructor() {
+        name = "FunkyFox";
+        symbol = "FNKY";
     }    
 
     function tokenURI(uint256 tokenId) public view returns (string memory) {
@@ -34,5 +34,9 @@ contract SuperHeros is ERC721 {
         nftCounter += 1;
 
         emit Transfer(address(0), msg.sender, nftCounter);
+    }
+    
+    function supportsInterface(bytes4 interfaceId) public pure override returns (bool) {
+        return interfaceId == 0x80ac58cd || interfaceId == 0x5b5e139f;
     }
 }

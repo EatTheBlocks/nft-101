@@ -13,6 +13,14 @@ async function main() {
   // manually to make sure everything is compiled
   // await hre.run('compile');
 
+  const accounts = await hre.ethers.getSigners();
+  const provider = hre.ethers.provider;
+
+  for (const account of accounts) {
+    console.log(account.address);
+    console.log((await provider.getBalance(account.address)).toString());
+  }
+
   // We get the contract to deploy
   const SuperHeros = await hre.ethers.getContractFactory("SuperHeros");
   const superHeros = await SuperHeros.deploy("SuperHeros", "SPRNFT");
@@ -20,6 +28,10 @@ async function main() {
   await superHeros.deployed();
 
   console.log("SuperHeros deployed to:", superHeros.address);
+
+  await superHeros.mint("https://ipfs.io/ipfs/QmTzfg3CnPJJvg2mFcFH9G4sZ8ZCZXgDYuxYioxm9uHG3L")
+
+  console.log("NFT successfully minted")
 }
 
 // We recommend this pattern to be able to use async/await everywhere

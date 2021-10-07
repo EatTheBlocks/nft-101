@@ -81,7 +81,7 @@ contract ERC721 {
         safeTransferFrom( from, to, tokenId, "" );
     }
 
-    function supportsInterface(bytes4 interfaceId) public pure returns (bool) {
+    function supportsInterface(bytes4 interfaceId) public pure virtual returns (bool) {
         return interfaceId == 0x80ac58cd; 
     }
     
