@@ -2,7 +2,7 @@ pragma solidity ^0.8.2;
 
 import "./ERC721.sol";
 
-contract SuperHeros is ERC721 {
+contract SuperHeroes is ERC721 {
     
     string public name;
 
@@ -12,9 +12,9 @@ contract SuperHeros is ERC721 {
 
     mapping(uint256 => string) private _tokenURIs;
 
-    constructor() {
-        name = "FunkyFox";
-        symbol = "FNKY";
+    constructor(string memory _name, string memory _symbol) {
+        name = _name;
+        symbol = _symbol;
     }    
 
     function tokenURI(uint256 tokenId) public view returns (string memory) {

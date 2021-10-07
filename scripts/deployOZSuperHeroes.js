@@ -14,22 +14,16 @@ async function main() {
   // await hre.run('compile');
 
   const accounts = await hre.ethers.getSigners();
-  const provider = hre.ethers.provider;
-
-  for (const account of accounts) {
-    console.log(account.address);
-    console.log((await provider.getBalance(account.address)).toString());
-  }
 
   // We get the contract to deploy
-  const SuperHeros = await hre.ethers.getContractFactory("SuperHeros");
-  const superHeros = await SuperHeros.deploy("SuperHeros", "SPRNFT");
+  const OZSuperHeroes = await hre.ethers.getContractFactory("OZSuperHeroes");
+  const ozSuperHeroes = await OZSuperHeroes.deploy("OZSuperHeroes", "SPHR");
 
-  await superHeros.deployed();
+  await ozSuperHeroes.deployed();
 
-  console.log("SuperHeros deployed to:", superHeros.address);
+  console.log("OZSuperHeroes deployed to:", ozSuperHeroes.address);
 
-  await superHeros.mint("https://ipfs.io/ipfs/QmTzfg3CnPJJvg2mFcFH9G4sZ8ZCZXgDYuxYioxm9uHG3L")
+  await ozSuperHeroes.mint("https://ipfs.io/ipfs/QmTzfg3CnPJJvg2mFcFH9G4sZ8ZCZXgDYuxYioxm9uHG3L")
 
   console.log("NFT successfully minted")
 }
