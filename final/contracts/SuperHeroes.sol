@@ -18,7 +18,7 @@ contract SuperHeroes is ERC721 {
     }    
 
     function tokenURI(uint256 tokenId) public view returns (string memory) {
-        require(ERC721._owners[tokenId] != address(0), "Token ID does not exist");
+        require(_owners[tokenId] != address(0), "Token ID does not exist");
         return _tokenURIs[tokenId];
     }
 

@@ -33,8 +33,7 @@ contract ERC721 {
     
     function approve(address to, uint256 tokenId) public {
         address owner = ownerOf(tokenId);
-        require(to != owner, "You cant approve the owner");
-        require( msg.sender == owner || _operatorApprovals[owner][msg.sender], "Msg.sender is not the owner or an approved operator");
+        require( msg.sender == owner || isApprovedForAll(owner, msg.sender), "Msg.sender is not the owner or an approved operator");
 
         _tokenApprovals[tokenId] = to;
         emit Approval(owner, to, tokenId);
