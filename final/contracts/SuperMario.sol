@@ -2,7 +2,7 @@ pragma solidity ^0.8.2;
 
 import "./ERC721.sol";
 
-contract SuperHeroes is ERC721 {
+contract SuperMario is ERC721 {
     
     string public name;
 
