@@ -77,7 +77,7 @@ contract ERC721 {
     }
     
     function safeTransferFrom(address from, address to, uint256 tokenId) public {
-        safeTransferFrom( from, to, tokenId, "" );
+        safeTransferFrom( from, to, tokenId, "");
     }
 
     function supportsInterface(bytes4 interfaceId) public pure virtual returns (bool) {
