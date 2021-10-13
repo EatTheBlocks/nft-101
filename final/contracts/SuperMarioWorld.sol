@@ -2,13 +2,13 @@ pragma solidity ^0.8.2;
 
 import "./ERC721.sol";
 
-contract SuperMario is ERC721 {
+contract SuperMarioWorld is ERC721 {
     
     string public name;
 
     string public symbol; 
 
-    uint256 public nftCounter;
+    uint256 public tokenCount;
 
     mapping(uint256 => string) private _tokenURIs;
 
@@ -22,18 +22,14 @@ contract SuperMario is ERC721 {
         return _tokenURIs[tokenId];
     }
 
-    function _setTokenURI(uint256 tokenId, string memory _tokenURI) internal {
-        require(_owners[tokenId] != address(0), "Token ID does not exist");
-        _tokenURIs[tokenId] = _tokenURI;
-    }
-
     function mint(string memory _tokenURI) public virtual {
+        
+        tokenCount += 1;
         _balances[msg.sender] += 1;
-        _owners[nftCounter] = msg.sender;
-        _setTokenURI(nftCounter, _tokenURI);
-        nftCounter += 1;
+        _owners[tokenCount] = msg.sender;
+        _tokenURIs[tokenCount] = _tokenURI;
 
-        emit Transfer(address(0), msg.sender, nftCounter);
+        emit Transfer(address(0), msg.sender, tokenCount);
     }
     
     function supportsInterface(bytes4 interfaceId) public pure override returns (bool) {

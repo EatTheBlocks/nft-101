@@ -32,5 +32,9 @@ module.exports = {
       url: process.env.POLYGON_RPC,
       accounts: [ process.env.PRIVATE_KEY ]
     },
+    mumbai: {
+      url: process.env.MUMBAI_RPC,
+      accounts: [ process.env.PRIVATE_KEY ]
+    },
   },
 };
