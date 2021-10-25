@@ -8,7 +8,7 @@ contract ERC1155 {
     event URI(string _value, uint256 indexed _id);
 
     // Mapping from token ID to account balances
-    mapping(uint256 => mapping(address => uint256)) private _balances;
+    mapping(uint256 => mapping(address => uint256)) internal _balances;
 
     // Mapping from account to operator approvals
     mapping(address => mapping(address => bool)) private _operatorApprovals;
@@ -82,7 +82,7 @@ contract ERC1155 {
         return true;
     }
 
-    function supportsInterface(bytes4 interfaceId) public pure returns (bool) {
+    function supportsInterface(bytes4 interfaceId) public pure virtual returns (bool) {
         return interfaceId == 0xd9b67a26; 
     }
 }

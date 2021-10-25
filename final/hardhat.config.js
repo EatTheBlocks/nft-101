@@ -24,8 +24,8 @@ module.exports = {
       url: process.env.KOVAN_RPC,
       accounts: [ process.env.PRIVATE_KEY ]
     },
-    rinkeby: {
-      url: process.env.RINKEBY_RPC,
+    goerli: {
+      url: process.env.GOERLI_RPC,
       accounts: [ process.env.PRIVATE_KEY ]
     },
     polygon: {

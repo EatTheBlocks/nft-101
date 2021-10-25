@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@openzeppelin/contracts": "^4.3.2",
+    "create-react-app": "^4.0.3",
     "dotenv": "^10.0.0"
   }
 }
