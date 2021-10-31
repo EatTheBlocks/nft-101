@@ -4,28 +4,26 @@ import { ethers } from 'ethers';
 import { NFTCard } from './components/NftCard';
 import { NftModal } from "./components/NftModal";
 import { connect } from "./helpers";
-import ReactLoading from 'react-loading';
 
 const axios = require('axios');
 
 function App() {
 
-  const [showModal, setShowModal] = useState(false);
-  const [nfts, setNfts] = useState([])
-  const [selectedNft, setSelectedNft] = useState()
+  let nftsInitial =
+  [
+    { name: "Mario", symbol: "SMWC", copies: 10, image: "https://via.placeholder.com/150" },
+    { name: "Luigi", symbol: "SMWC", copies: 10, image: "https://via.placeholder.com/150" },
+    { name: "Yoshi", symbol: "SMWC", copies: 10, image: "https://via.placeholder.com/150" },
+    { name: "Donkey Kong", symbol: "SMWC", copies: 10, image: "https://via.placeholder.com/150" },
+    { name: "Mario", symbol: "SMWC", copies: 10, image: "https://via.placeholder.com/150" },
+    { name: "Luigi", symbol: "SMWC", copies: 10, image: "https://via.placeholder.com/150" },
+    { name: "Yoshi", symbol: "SMWC", copies: 10, image: "https://via.placeholder.com/150" },
+    { name: "Donkey Kong", symbol: "SMWC", copies: 10, image: "https://via.placeholder.com/150" },
+  ]
 
-  // let nfts = [
-  //   { collection: "lolcats.com", name: "Cat", image: "https://via.placeholder.com/150" },
-  //   { collection: "lolcats.com", name: "Cat", image: "https://via.placeholder.com/150" },
-  //   { collection: "lolcats.com", name: "Cat", image: "https://via.placeholder.com/150" },
-  //   { collection: "lolcats.com", name: "Cat", image: "https://via.placeholder.com/150" },
-  //   { collection: "lolcats.com", name: "Cat", image: "https://via.placeholder.com/150" },
-  //   { collection: "lolcats.com", name: "Cat", image: "https://via.placeholder.com/150" },
-  //   { collection: "lolcats.com", name: "Cat", image: "https://via.placeholder.com/150" },
-  //   { collection: "lolcats.com", name: "Cat", image: "https://via.placeholder.com/150" },
-  //   { collection: "lolcats.com", name: "Cat", image: "https://via.placeholder.com/150" },
-  //   { collection: "lolcats.com", name: "Cat", image: "https://via.placeholder.com/150" },
-  // ]
+  const [showModal, setShowModal] = useState(false);
+  const [nfts, setNfts] = useState(nftsInitial)
+  const [selectedNft, setSelectedNft] = useState()
 
   useEffect(() => {
 
@@ -49,33 +47,37 @@ function App() {
       "function symbol() public view returns(string memory)",
       "function tokenCount() public view returns(uint256)",
       "function uri(uint256 _tokenId) public view returns(string memory)",
-      "function balanceOf(address account, uint256 id) public view returns (uint256)"
+      "function balanceOfBatch(address[] accounts, uint256[] ids) public view returns (uint256[])"
     ]
-
+    // 0x9dd21A4DfA9fbe8b542929B17b4AEbE45652429C
     let nftCollection = new ethers.Contract(
-      "0x9dd21A4DfA9fbe8b542929B17b4AEbE45652429C",
+      "0x1Dcc4047eE9C45e7CD527276b0cE3c721a154166",
       abi,
       ethersProvider
     );
 
-    let numberOfNfts = await nftCollection.tokenCount()
+    let numberOfNfts = (await nftCollection.tokenCount()).toNumber()
     let collectionSymbol = await nftCollection.symbol()
+
+    let accounts = Array(numberOfNfts).fill(address)
+    let ids = Array.from({length: numberOfNfts}, (_, i) => i + 1);
+    let copies = await nftCollection.balanceOfBatch(accounts, ids)
 
     let tempArray = []
     let baseUrl = ""
     for (let i = 1; i <= numberOfNfts; i++) {
+
       if (i == 1) {
         let tokenURI = await nftCollection.uri(i)
         baseUrl = tokenURI.replace(/\d+.json/, "")
         let metadata = await getMetadataFromIpfs(tokenURI)
         metadata.symbol = collectionSymbol
-        console.log(address)
-        metadata.copies = await nftCollection.balanceOf(address, i)
+        metadata.copies = copies[i - 1]
         tempArray.push(metadata)
       } else {
         let metadata = await getMetadataFromIpfs(baseUrl + `${i}.json`)
         metadata.symbol = collectionSymbol
-        metadata.copies = await nftCollection.balanceOf(address, i)
+        metadata.copies = copies[i - 1]
         tempArray.push(metadata)
       }
     }

@@ -8,14 +8,14 @@ const NftModal = (props) => {
         <Modal>
             <ModalContent>
                 <ModalGrid>
-                    <NftPhoto style={{ backgroundImage: `url(${nft && nft.image})`, height: 400, width: 400 }} />
+                    <NftPhoto style={{ backgroundImage: `url(${nft.image})`, height: 400, width: 400 }} />
                     <div>
                         <Title>{nft.name}</Title>
-                        <Paragraph >{`You own ${ nft.copies } copies`}</Paragraph>
+                        <Paragraph >{`You own ${nft.copies} copies`}</Paragraph>
                         <SectionText> Description </SectionText>
                         <Paragraph style={{ width: 400 }} > {nft.description}</Paragraph>
                         <SectionText> Attributes </SectionText>
-                        { nft &&
+                        {nft.attributes &&
                             nft.attributes.map((attribute, i) =>
                                 <div key={i}>
                                     <div style={{ margin: "10px 0px 5px 0px" }}>
@@ -38,7 +38,7 @@ const Title = styled.h1`
     margin: 0;
 `
 const Paragraph = styled.p`
-margin: 0 0 15px 0;
+    margin: 0 0 15px 0;
 `
 const SectionText = styled.h3`
     margin: 5px 0 5px 0;

@@ -1,0 +1,27 @@
+{
+    "name" : "Luigi Gold",
+    "description": "Luigi Gold is the badass version of Luigi. He was trained by ninjas, wolves and Bitcoin HODLers on how to defeat his enemys with speed, strength and Bitcoin",
+    "image" : "https://ipfs.io/ipfs/QmXPdhZunk5psvpvWCHpg99G8TRSyPpzn46p5DjJbzrS4h/6.jpg",
+    "attributes": [
+        {
+            "trait_type": "Strength",
+            "value": 10,
+            "max_value": 10
+        },
+        {
+            "trait_type": "Speed",
+            "value": 10,
+            "max_value": 10
+        },
+        {
+            "trait_type": "Jump",
+            "value": 10,
+            "max_value": 10
+        },
+        {
+            "trait_type": "Intelligence",
+            "value": 10,
+            "max_value": 10
+        }
+    ]
+}

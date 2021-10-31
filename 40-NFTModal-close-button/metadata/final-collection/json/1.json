@@ -1,0 +1,27 @@
+{
+    "name" : "Mario",
+    "description": "Mario is a short, pudgy, Italian plumber who sets out to rescue Princess Peach from the evil villain Bowser",
+    "image" : "https://ipfs.io/ipfs/QmXPdhZunk5psvpvWCHpg99G8TRSyPpzn46p5DjJbzrS4h/1.jpg",
+    "attributes": [
+        {
+            "trait_type": "Strength",
+            "value": 7,
+            "max_value": 10
+        },
+        {
+            "trait_type": "Speed",
+            "value": 6,
+            "max_value": 10
+        },
+        {
+            "trait_type": "Jump",
+            "value": 6,
+            "max_value": 10
+        },
+        {
+            "trait_type": "Intelligence",
+            "value": 9,
+            "max_value": 10
+        }
+    ]
+}

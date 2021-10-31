@@ -1,0 +1,27 @@
+{
+    "name" : "Luigi",
+    "description": "Luigi is Mario's nervous and good-natured brother who has lived most of his life in Mario's shadow",
+    "image" : "https://ipfs.io/ipfs/QmXPdhZunk5psvpvWCHpg99G8TRSyPpzn46p5DjJbzrS4h/2.jpg",
+    "attributes": [
+        {
+            "trait_type": "Strength",
+            "value": 4,
+            "max_value": 10
+        },
+        {
+            "trait_type": "Speed",
+            "value": 8,
+            "max_value": 10
+        },
+        {
+            "trait_type": "Jump",
+            "value": 8,
+            "max_value": 10
+        },
+        {
+            "trait_type": "Intelligence",
+            "value": 6,
+            "max_value": 10
+        }
+    ]
+}

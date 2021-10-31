@@ -1,0 +1,51 @@
+{
+    "name" : "Yoshi",
+    "description": "Yoshi is a green dinosaur that uses his long, sticky tongue to eat his enemies.",
+    "image" : "https://ipfs.io/ipfs/QmY29apSSEbMqcaXj4cffeBzxrsc1J8ieq6PbenTLbowbP",
+    "attributes": [
+        {
+            "trait_type": "Strength",
+            "value": 9,
+            "max_value": 10
+        },
+        {
+            "trait_type": "Speed",
+            "value": 10,
+            "max_value": 10
+        },
+        {
+            "trait_type": "Jump",
+            "value": 10,
+            "max_value": 10
+        },
+        {
+            "trait_type": "Intelligence",
+            "value": 7,
+            "max_value": 10
+        },
+        {
+            "display_type": "boost_number",
+            "trait_type": "Jump",
+            "value": 10
+        },
+        {
+            "display_type": "boost_percentage",
+            "trait_type": "Speed",
+            "value": 50
+        },
+        {
+            "display_type": "number",
+            "trait_type": "Generation",
+            "value": 1
+        },
+        {
+            "trait_type": "Determined",
+            "value": "True"
+        },
+        {
+            "trait_type": "Kind",
+            "value": "True"
+        }
+
+    ]
+}
