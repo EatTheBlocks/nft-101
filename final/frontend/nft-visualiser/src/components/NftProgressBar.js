@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const NftProgressBar = (props) => {
+const NFTProgressBar = (props) => {
     return (
         <ProgressBarOuter>
             <ProgressBarInner style={{width: `${props.percent}%`}}/>
@@ -11,9 +11,9 @@ const NftProgressBar = (props) => {
 const ProgressBarOuter = styled.div`
     background-color: lightgray;
     border-radius: 13px;
-    /* (height of inner div) / 2 + padding */
     padding: 3px;
 `
+
 const ProgressBarInner = styled.div`
     background-color: #0077ff;
     width: 40%;
@@ -21,4 +21,4 @@ const ProgressBarInner = styled.div`
     border-radius: 7px;
 `
 
-export { NftProgressBar }
+export { NFTProgressBar }

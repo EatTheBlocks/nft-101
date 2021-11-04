@@ -20,21 +20,9 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 module.exports = {
   solidity: "0.8.2",
   networks: {
-    kovan: {
-      url: process.env.KOVAN_RPC,
-      accounts: [ process.env.PRIVATE_KEY ]
-    },
-    goerli: {
-      url: process.env.GOERLI_RPC,
-      accounts: [ process.env.PRIVATE_KEY ]
-    },
-    polygon: {
-      url: process.env.POLYGON_RPC,
-      accounts: [ process.env.PRIVATE_KEY ]
-    },
     mumbai: {
       url: process.env.MUMBAI_RPC,
       accounts: [ process.env.PRIVATE_KEY ]
     },
-  },
+  }
 };

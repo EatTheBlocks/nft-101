@@ -1,21 +1,19 @@
+
 const { ethers } = require("hardhat");
 
 async function main() {
 
-  // Get compiled contract by name
-  const SuperMarioWorld = await ethers.getContractFactory("MyNFT");
-  const superMarioWorld = await SuperMarioWorld.deploy("MyNFT", "MNFT");
+  const SuperMarioWorld = await ethers.getContractFactory("SuperMarioWorldERC1155");
+  const superMarioWorld = await SuperMarioWorld.deploy("SuperMarioWorldERC1155", "SPRME");
 
   await superMarioWorld.deployed();
-  console.log("SuperMarioWorld deployed to:", superMarioWorld.address);
+  console.log("Success! Contract was deployed to: ", superMarioWorld.address);
 
-  await superMarioWorld.mint(10,"https://ipfs.io/ipfs/QmedqBK4vuAPsCgGC2r5udPTf3dC2wKbBgW9i6TaxeGXtm")
-  
-  console.log("NFT successfully minted")
+  await superMarioWorld.mint(10, "https://ipfs.io/ipfs/QmUYMgqe6AQVaw2UjYJ2NdAEdRnSB2k6VdMnHjhQ1swvMG")
+
+  console.log("NFT successfully minted");
 }
 
-// We recommend this pattern to be able to use async/await everywhere
-// and properly handle errors.
 main()
   .then(() => process.exit(0))
   .catch((error) => {
